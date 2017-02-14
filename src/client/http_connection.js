@@ -92,7 +92,7 @@ HttpConnection = exports.HttpConnection = function (host, port, options) {
     //Prepare Node.js options
     this.nodeOptions = {
         host: this.host,
-        port: this.port || 80,
+        port: this.port,
         path: this.options.path || '/',
         method: 'POST',
         headers: this.options.headers || {},
