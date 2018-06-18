@@ -1,15 +1,13 @@
-const path = require('path');
-const helpers = require('./helpers');
-
 module.exports = {
     name: 'woody_js',
-    mode: 'development',
+    mode: 'production',
+    stats: 'errors-only',
     entry: {
-        index: './src/index.js'
+        'connect-client': './src/connect-client.js',
+        'thrift': './src/client/gen.js'
     },
     resolve: {
-        extensions: ['.js'],
-        modules: ['node_modules', path.join(__dirname, 'src/client')]
+        extensions: ['.js']
     },
     module: {
         rules: [
@@ -20,7 +18,7 @@ module.exports = {
         ]
     },
     output: {
-        path: helpers.root(''),
+        path: __dirname,
         filename: '[name].js',
         library: 'woody_js',
         libraryTarget: 'umd',
