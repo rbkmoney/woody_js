@@ -24,9 +24,7 @@
     "q": "1.5.x",
     "rimraf": "2.6.2",
     "stream-http": "2.3.1",
-    "ws": "6.0.0"
-  },
-  "devDependencies": {
+    "ws": "6.0.0",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
