@@ -18,7 +18,7 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname,
+        path: __dirname + '/dist',
         filename: '[name].js',
         library: 'woody_js',
         libraryTarget: 'umd',
