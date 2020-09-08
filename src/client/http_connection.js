@@ -226,9 +226,16 @@ HttpConnection.prototype.write = function (data) {
     self.nodeOptions.headers['Accept'] = 'application/x-thrift';
     self.nodeOptions.headers['Content-Type'] = 'application/x-thrift';
     var id = bs64.encode(flake.next());
+
+    // Deprecated
     self.nodeOptions.headers['x-rbk-span-id'] = id;
     self.nodeOptions.headers['x-rbk-parent-id'] = undefined;
     self.nodeOptions.headers['x-rbk-trace-id'] = id;
+
+    self.nodeOptions.headers['woody.span-id'] = id;
+    self.nodeOptions.headers['woody.parent-id'] = undefined;
+    self.nodeOptions.headers['woody.trace-id'] = id;
+
     var req = (self.https) ?
         https.request(self.nodeOptions, self.responseCallback) :
         http.request(self.nodeOptions, self.responseCallback);
