@@ -18,17 +18,18 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
     "base-x": "3.0.4",
     "flake-idgen": "1.1.0",
+    "moment": "^2.27.0",
     "node-int64": "0.4.0",
     "q": "1.5.x",
     "rimraf": "2.6.2",
     "stream-http": "2.3.1",
-    "ws": "6.0.0",
-    "babel-core": "6.26.3",
-    "babel-loader": "7.1.4",
-    "babel-preset-env": "1.7.0",
     "webpack": "4.16.5",
-    "webpack-cli": "3.1.0"
+    "webpack-cli": "3.1.0",
+    "ws": "6.0.0"
   }
 }

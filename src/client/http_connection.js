@@ -19,6 +19,7 @@
 var util = require('util');
 var http = require('stream-http');
 var https = require('https');
+var moment = require('moment');
 var EventEmitter = require('events').EventEmitter;
 var thrift = require('./thrift');
 
@@ -225,6 +226,7 @@ HttpConnection.prototype.write = function (data) {
     self.nodeOptions.headers['Content-length'] = data.length;
     self.nodeOptions.headers['Accept'] = 'application/x-thrift';
     self.nodeOptions.headers['Content-Type'] = 'application/x-thrift';
+    
     var id = bs64.encode(flake.next());
 
     // Deprecated
@@ -235,6 +237,13 @@ HttpConnection.prototype.write = function (data) {
     self.nodeOptions.headers['woody.span-id'] = id;
     self.nodeOptions.headers['woody.parent-id'] = undefined;
     self.nodeOptions.headers['woody.trace-id'] = id;
+
+    if (self.options && self.options.deadlineConfig) {
+        var c = self.options.deadlineConfig;
+        var deadline = moment().add(c.amount, c.unitOfTime).utc().format();
+        self.nodeOptions.headers['x-rbk-deadline'] = deadline; // Deprecated
+        self.nodeOptions.headers['woody.deadline'] = deadline;
+    }
 
     var req = (self.https) ?
         https.request(self.nodeOptions, self.responseCallback) :

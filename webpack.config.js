@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
     name: 'woody_js',
     mode: 'production',
@@ -17,6 +19,10 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        // Ignore all locale files of moment.js
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    ],
     output: {
         path: __dirname + '/dist',
         filename: '[name].js',
