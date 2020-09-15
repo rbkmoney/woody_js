@@ -241,7 +241,7 @@ HttpConnection.prototype.write = function (data) {
     if (self.options && self.options.deadlineConfig) {
         var c = self.options.deadlineConfig;
         var deadline = moment().add(c.amount, c.unitOfTime).utc().format();
-        self.nodeOptions.headers['x-rbk-deadline'] = deadline; // Deprecated
+        // self.nodeOptions.headers['x-rbk-deadline'] = deadline; // Deprecated
         self.nodeOptions.headers['woody.deadline'] = deadline;
     }
 
