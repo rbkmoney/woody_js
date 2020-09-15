@@ -229,10 +229,10 @@ HttpConnection.prototype.write = function (data) {
     
     var id = bs64.encode(flake.next());
 
-    // Deprecated
-    self.nodeOptions.headers['x-rbk-span-id'] = id;
-    self.nodeOptions.headers['x-rbk-parent-id'] = undefined;
-    self.nodeOptions.headers['x-rbk-trace-id'] = id;
+    // // Deprecated
+    // self.nodeOptions.headers['x-rbk-span-id'] = id;
+    // self.nodeOptions.headers['x-rbk-parent-id'] = undefined;
+    // self.nodeOptions.headers['x-rbk-trace-id'] = id;
 
     self.nodeOptions.headers['woody.span-id'] = id;
     self.nodeOptions.headers['woody.parent-id'] = undefined;
