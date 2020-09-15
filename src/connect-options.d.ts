@@ -25,5 +25,6 @@ export interface ConnectOptions {
     headers?: KeyValue;
     https?: boolean;
     nodeOptions?: object;
-    deadlineConfig?: DeadlineConfig
+    deadlineConfig?: DeadlineConfig;
+    deprecatedHeaders?: boolean;
 }
