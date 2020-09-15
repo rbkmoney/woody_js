@@ -229,11 +229,12 @@ HttpConnection.prototype.write = function (data) {
     
     var id = bs64.encode(flake.next());
 
-    // // Deprecated
-    // self.nodeOptions.headers['x-rbk-span-id'] = id;
-    // self.nodeOptions.headers['x-rbk-parent-id'] = undefined;
-    // self.nodeOptions.headers['x-rbk-trace-id'] = id;
-
+    if(self.options && self.options.deprecatedHeaders === true) {
+        // Deprecated
+        self.nodeOptions.headers['x-rbk-span-id'] = id;
+        self.nodeOptions.headers['x-rbk-parent-id'] = undefined;
+        self.nodeOptions.headers['x-rbk-trace-id'] = id;
+    }
     self.nodeOptions.headers['woody.span-id'] = id;
     self.nodeOptions.headers['woody.parent-id'] = undefined;
     self.nodeOptions.headers['woody.trace-id'] = id;
@@ -241,7 +242,9 @@ HttpConnection.prototype.write = function (data) {
     if (self.options && self.options.deadlineConfig) {
         var c = self.options.deadlineConfig;
         var deadline = moment().add(c.amount, c.unitOfTime).utc().format();
-        // self.nodeOptions.headers['x-rbk-deadline'] = deadline; // Deprecated
+        if (self.options.deprecatedHeaders === true) {
+            self.nodeOptions.headers['x-rbk-deadline'] = deadline; // Deprecated
+        }
         self.nodeOptions.headers['woody.deadline'] = deadline;
     }
 
