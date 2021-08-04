@@ -1,5 +1,5 @@
 {
-  "name": "woody_js",
+  "name": "@rbkmoney/woody_js",
   "version": "0.1.0",
   "description": "Woody client side implementation for js",
   "repository": {
