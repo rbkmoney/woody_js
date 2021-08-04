@@ -4,5 +4,6 @@ JS адаптация клиентской части [Библиотеки RPC 
 ## Publish
 
 ```sh
+npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
 npm publish
 ```
