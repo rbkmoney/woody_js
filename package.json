@@ -1,6 +1,6 @@
 {
   "name": "woody_js",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Woody client side implementation for js",
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepublish": "npm run clean; npm run build"
   },
   "dependencies": {
     "babel-core": "6.26.3",
