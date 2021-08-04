@@ -4,5 +4,5 @@ JS адаптация клиентской части [Библиотеки RPC 
 ## Publish
 
 ```sh
-npm run publish
+npm publish
 ```
