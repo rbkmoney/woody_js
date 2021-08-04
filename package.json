@@ -6,14 +6,16 @@
     "type": "git",
     "url": "git+https://github.com/rbkmoney/woody_js.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@rbkmoney"
+  },
   "main": "dist/connect-client.js",
   "typings": "src/connect-client.d.ts",
+  "files": ["dist", "src"],
   "author": "rbkmoney",
   "license": "",
   "private": true,
   "scripts": {
-    "prebuild": "npm run clean",
-    "postinstall": "npm run build",
     "build": "webpack --config webpack.config.js",
     "clean": "rimraf dist"
   },
@@ -28,8 +30,8 @@
     "q": "1.5.x",
     "rimraf": "2.6.2",
     "stream-http": "2.3.1",
-    "webpack": "4.16.5",
-    "webpack-cli": "3.1.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.7.2",
     "ws": "6.0.0"
   }
 }
