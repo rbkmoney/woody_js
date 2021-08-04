@@ -1,6 +1,6 @@
 {
   "name": "woody_js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Woody client side implementation for js",
   "repository": {
     "type": "git",
@@ -14,7 +14,6 @@
   "files": ["dist", "src"],
   "author": "rbkmoney",
   "license": "",
-  "private": true,
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "clean": "rimraf dist",
